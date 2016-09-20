@@ -1,9 +1,71 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
+
   <groupId>com.iqlect</groupId>
   <artifactId>bangdb-client-java</artifactId>
   <version>0.9.3</version>
-  <description>POM was created from install:install-file</description>
+  <packaging>jar</packaging>
+
+  <name>Maven Quick Start Archetype</name>
+  <url>http://maven.apache.org</url>
+
+  <build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+                <source>1.7</source>
+                <target>1.7</target>
+            </configuration>
+        </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.4.0</version>
+                <configuration>
+                    <mainClass>iql</mainClass>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>antlr-maven-plugin</artifactId>
+                <configuration>
+		    <sourceDirectory>src/main/antlr</sourceDirectory>
+                    <grammars>iqlJava.g</grammars>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+    </plugins>
+    
+  </build>
+    <dependencies>
+        <dependency>
+           	<groupId>junit</groupId>
+     	 	<artifactId>junit</artifactId>
+      		<version>4.8.2</version>
+      		<scope>test</scope>
+    	</dependency>
+	<dependency>
+		<groupId>antlr</groupId>
+		<artifactId>antlr</artifactId>
+		<version>2.7.7</version>
+	</dependency>
+        <dependency>
+          	<groupId>com.google.code.gson</groupId>
+          	<artifactId>gson</artifactId>
+          	<version>2.5</version>
+        </dependency>
+        <dependency>
+		<groupId>org.json</groupId>
+		<artifactId>json</artifactId>
+		<version>20150729</version>
+        </dependency>
+  </dependencies>
 </project>
